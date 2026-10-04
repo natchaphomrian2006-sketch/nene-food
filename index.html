@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+        content="#ff7a00">
+
+    <meta name="description"
+        content="Nene Food ร้านอาหารออนไลน์">
+
+    <link rel="manifest"
+        href="manifest.json">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+    <title>Nene Food</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+<header class="header">
+
+    <div class="logo">
+        🍽️ Nene Food
+    </div>
+
+    <div>
+
+        <button
+            class="history-button"
+            onclick="openHistory()">
+
+            📋 ประวัติ
+
+        </button>
+
+        <button
+            class="cart-button"
+            onclick="openCart()">
+
+            🛒
+            <span id="cartCount">0</span>
+
+        </button>
+
+    </div>
+
+</header>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            🍽️ Nene Food
+        </div>
+
+        <h1>
+            อร่อยง่าย ๆ
+            <br>
+            <span>ส่งตรงถึงบ้านคุณ</span>
+        </h1>
+
+        <p>
+            สั่งอาหารออนไลน์ได้ง่าย
+            <br>
+            รวดเร็ว สดใหม่ และสะดวก
+        </p>
+
+        <button
+            class="hero-button"
+            onclick="document.querySelector('.menu-section').scrollIntoView({ behavior: 'smooth' })">
+
+            🍛 สั่งอาหารเลย
+
+        </button>
+
+    </div>
+
+</section>
+
+
+        <!-- SEARCH -->
+<section class="search-section">
+
+    <div class="search-box">
+
+        <span class="search-icon">
+            🔍
+        </span>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="ค้นหาเมนูที่อยากกิน..."
+            oninput="searchFood()"
+        >
+
+        <button
+            class="search-clear"
+            onclick="clearSearch()"
+            id="clearSearchButton">
+
+            ✕
+
+        </button>
+
+    </div>
+
+</section>
+        <!-- CATEGORY -->
+        <section class="category-section">
+
+            <button
+                onclick="filterCategory('ทั้งหมด')"
+                class="category active">
+
+                ทั้งหมด
+
+            </button>
+
+            <button
+                onclick="filterCategory('อาหาร')"
+                class="category">
+
+                🍛 อาหาร
+
+            </button>
+
+            <button
+                onclick="filterCategory('เครื่องดื่ม')"
+                class="category">
+
+                🥤 เครื่องดื่ม
+
+            </button>
+
+        </section>
+
+
+        <!-- MENU -->
+        <section class="menu-section">
+
+            <h2>
+                เมนูของเรา
+            </h2>
+
+            <div
+                id="foodContainer"
+                class="food-grid">
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOD DETAIL -->
+<div
+    id="foodDetailModal"
+    class="modal">
+
+    <div class="modal-content food-detail">
+
+        <div class="modal-header">
+
+            <h2>
+                🍛 รายละเอียดเมนู
+            </h2>
+
+            <button
+                onclick="closeFoodDetail()">
+                ✕
+            </button>
+
+        </div>
+
+        <img
+            id="detailImage"
+            class="detail-image"
+            src=""
+            alt="">
+
+        <div class="detail-info">
+
+            <h2 id="detailName">
+                ชื่อเมนู
+            </h2>
+
+            <div
+                id="detailPrice"
+                class="detail-price">
+                ฿0
+            </div>
+
+            <p id="detailDescription">
+                อาหารอร่อย สดใหม่
+            </p>
+
+        </div>
+
+        <div class="detail-quantity">
+
+            <button
+                onclick="changeDetailQuantity(-1)">
+                −
+            </button>
+
+            <span id="detailQuantity">
+                1
+            </span>
+
+            <button
+                onclick="changeDetailQuantity(1)">
+                +
+            </button>
+
+        </div>
+
+        <button
+            class="confirm-button"
+            onclick="addDetailToCart()">
+
+            🛒 เพิ่มลงตะกร้า
+
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- CART DRAWER -->
+    <div
+        id="cartModal"
+        class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>
+                    🛒 ตะกร้าสินค้า
+                </h2>
+
+                <button
+                    onclick="closeCart()">
+
+                    ✕
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="cartItems">
+
+            </div>
+
+
+            <div class="cart-total">
+
+                <span>
+                    รวมทั้งหมด
+                </span>
+
+                <strong>
+                    ฿<span id="cartTotal">0</span>
+                </strong>
+
+            </div>
+
+
+            <button
+                class="checkout-button"
+                onclick="openCheckout()">
+
+                ดำเนินการสั่งซื้อ
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHECKOUT -->
+    <div
+        id="checkoutModal"
+        class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>
+                    📦 ข้อมูลการสั่งซื้อ
+                </h2>
+
+                <button
+                    onclick="closeCheckout()">
+
+                    ✕
+
+                </button>
+
+            </div>
+
+
+            <label>
+                ชื่อลูกค้า
+            </label>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="กรอกชื่อ">
+
+            
+            <label>
+                เบอร์โทรศัพท์
+            </label>
+
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="08xxxxxxxx">
+
+
+            <label>
+                ที่อยู่จัดส่ง
+            </label>
+
+            <textarea
+                id="customerAddress"
+                placeholder="บ้านเลขที่ / ถนน / ตำบล / อำเภอ / จังหวัด">
+
+            </textarea>
+
+
+            <h3>
+                💳 วิธีชำระเงิน
+            </h3>
+
+
+            <label class="payment-option">
+
+            <input
+                type="radio"
+                name="payment"
+                value="transfer"
+                onchange="showPayment('transfer')">
+
+                🏦 โอนเงิน
+
+            </label>
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="cod"
+                    onchange="showPayment('cod')">
+
+                💵 เก็บเงินปลายทาง
+
+            </label>
+
+
+            <!-- TRANSFER -->
+            <div
+                id="transferBox"
+                class="payment-box">
+
+                <h3>
+                    🏦 ชำระโดยการโอนเงิน
+                </h3>
+
+                <p>
+                    ธนาคาร: กสิกรไทย
+                </p>
+
+                <p>
+                    ชื่อบัญชี: Nene Food
+                </p>
+
+                <p>
+                    เลขบัญชี: 123-4-56789-0
+                </p>
+
+                <div class="qr-placeholder">
+                <img
+                src="images/qr-payment.png"
+                alt="QR พร้อมเพย์"
+                >
+                </div>
+
+                <label>
+                    แนบสลิป
+                </label>
+
+                <input
+                    type="file"
+                    id="slipUpload"
+                    accept="image/*"
+>
+
+            </div>
+
+
+            <!-- COD -->
+            <div
+                id="codBox"
+                class="payment-box">
+
+                <h3>
+                    💵 เก็บเงินปลายทาง
+                </h3>
+
+                <p>
+                    ชำระเงินเมื่อได้รับอาหาร
+                </p>
+
+            </div>
+
+
+            <button
+                class="confirm-button"
+                onclick="confirmOrder()">
+
+                ✅ ยืนยันการสั่งซื้อ
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ORDER HISTORY -->
+<div
+    id="historyModal"
+    class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+                📋 ประวัติการสั่งซื้อ
+            </h2>
+
+            <button
+                onclick="closeHistory()">
+                ✕
+            </button>
+
+        </div>
+
+        <div id="historyList">
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ORDER SUCCESS -->
+<div
+    id="successModal"
+    class="modal">
+
+    <div
+        class="modal-content success">
+
+        <div class="success-icon">
+            🎉
+        </div>
+
+        <h2>
+            สั่งซื้อสำเร็จ!
+        </h2>
+
+        <p>
+            หมายเลขออเดอร์
+        </p>
+
+        <strong id="orderNumber"></strong>
+
+        <div
+            id="orderSummary"
+            class="order-summary">
+        </div>
+
+        <p>
+            ขอบคุณที่ใช้บริการ Nene Food
+        </p>
+
+        <button
+            class="confirm-button"
+            onclick="closeSuccess()">
+
+            ตกลง
+
+        </button>
+
+    </div>
+
+</div>
+
+    <script
+        src="app.js">
+    </script>
+
+
+    <script>
+
+        if ('serviceWorker' in navigator) {
+
+            window.addEventListener('load', () => {
+
+                navigator.serviceWorker.register(
+                    'service-worker.js'
+                );
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>

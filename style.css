@@ -1,0 +1,1888 @@
+/* =========================
+   NENE FOOD - BLUE PURPLE
+   ========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, "Tahoma", sans-serif;
+    background: #f7f8ff;
+    color: #29254a;
+}
+
+
+/* =========================
+   HEADER - NENE FOOD
+========================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    min-height: 68px;
+    padding: 10px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: linear-gradient(
+        135deg,
+        #4f8cff 0%,
+        #7656e8 100%
+    );
+
+    color: white;
+
+    box-shadow:
+        0 4px 18px rgba(60, 50, 150, 0.25);
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+
+    white-space: nowrap;
+}
+
+
+/* ไอคอนร้าน */
+
+.logo::first-letter {
+    font-size: 24px;
+}
+
+
+/* =========================
+   HEADER BUTTON AREA
+========================= */
+
+.header > div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+/* =========================
+   HISTORY + CART
+========================= */
+
+.history-button,
+.cart-button {
+    border: none;
+
+    height: 43px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    color: #5c55d6;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* ประวัติ */
+
+.history-button {
+    padding: 0 15px;
+
+    font-size: 13px;
+}
+
+
+/* ตะกร้า */
+
+.cart-button {
+    position: relative;
+
+    padding: 0 14px;
+
+    font-size: 17px;
+}
+
+
+/* Hover */
+
+.history-button:hover,
+.cart-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ตอนกด */
+
+.history-button:active,
+.cart-button:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================
+   CART COUNT
+========================= */
+
+#cartCount {
+    position: absolute;
+
+    top: -5px;
+    right: -5px;
+
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ff4f81;
+
+    color: white;
+
+    border: 2px solid white;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #4f8cff,
+        #7354e8,
+        #9b63e8
+    );
+}
+
+.hero h1 {
+    font-size: 30px;
+    line-height: 1.4;
+
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+
+/* =========================
+   SEARCH
+   ========================= */
+
+.search-section {
+    padding: 20px;
+    background: white;
+}
+
+.search-section input {
+    width: 100%;
+
+    padding: 14px 18px;
+
+    border: 2px solid #e1e3ff;
+    border-radius: 15px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    background: #fafaff;
+}
+
+.search-section input:focus {
+    border-color: #6c63e6;
+}
+
+
+/* =========================
+   CATEGORY
+   ========================= */
+
+.category-section {
+    display: flex;
+
+    gap: 10px;
+
+    padding: 0 20px 20px;
+
+    overflow-x: auto;
+
+    background: white;
+}
+
+.category {
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 25px;
+
+    background: #eef1ff;
+
+    color: #5b58a8;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.category.active {
+    background: linear-gradient(
+        135deg,
+        #4f8cff,
+        #7656e8
+    );
+
+    color: white;
+
+    box-shadow: 0 4px 10px rgba(92, 83, 210, 0.25);
+}
+
+
+/* =========================
+   MENU
+   ========================= */
+
+.menu-section {
+    padding: 25px 20px;
+}
+
+.menu-section h2 {
+    margin-bottom: 18px;
+
+    font-size: 23px;
+
+    color: #302b63;
+}
+
+
+/* =========================
+   FOOD GRID
+   ========================= */
+
+.food-grid {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(180px, 1fr)
+    );
+
+    gap: 20px;
+
+    width: 100%;
+}
+
+
+/* =========================
+   FOOD CARD
+   ========================= */
+
+.food-card {
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(72, 67, 150, 0.1);
+
+    transition: 0.2s;
+
+    min-width: 0;
+}
+
+.food-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 7px 20px rgba(72, 67, 150, 0.18);
+}
+
+
+/* =========================
+   FOOD IMAGE
+   ========================= */
+
+.food-card img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================
+   FOOD INFO
+   ========================= */
+
+.food-info {
+    padding: 13px;
+}
+
+.food-info h3 {
+    font-size: 16px;
+
+    margin-bottom: 8px;
+
+    color: #302b63;
+}
+
+.food-name {
+    font-size: 16px;
+
+    font-weight: bold;
+
+    line-height: 1.4;
+
+    margin-bottom: 8px;
+
+    color: #302b63;
+}
+
+.food-price {
+    color: #6858dc;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   ADD BUTTON
+   ========================= */
+
+.add-button {
+    width: 100%;
+
+    padding: 10px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #4f8cff,
+        #7656e8
+    );
+
+    color: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.add-button:hover {
+    opacity: 0.9;
+}
+
+
+/* =========================
+   MODAL
+   ========================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200;
+
+    background: rgba(30, 25, 70, 0.45);
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+.modal-content {
+    width: 100%;
+
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    padding: 22px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 40px rgba(40, 30, 100, 0.25);
+}
+
+.modal-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    color: #302b63;
+}
+
+.modal-header button {
+    border: none;
+
+    background: #eef1ff;
+
+    color: #5b58a8;
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   CART
+   ========================= */
+
+.cart-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eeeefe;
+}
+
+.quantity {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    flex-shrink: 0;
+}
+
+.quantity button {
+    width: 28px;
+
+    height: 28px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #e9edff;
+
+    color: #5c55d6;
+
+    cursor: pointer;
+}
+
+.cart-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 20px 0;
+
+    font-size: 18px;
+
+    color: #302b63;
+}
+
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.checkout-button,
+.confirm-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #4f8cff,
+        #7656e8
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   FORM
+   ========================= */
+
+.modal-content label {
+    display: block;
+
+    margin-top: 12px;
+
+    margin-bottom: 6px;
+
+    color: #494477;
+
+    font-weight: bold;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 2px solid #e3e5ff;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    background: #fafaff;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+    border-color: #6c63e6;
+}
+
+.modal-content textarea {
+    min-height: 90px;
+
+    resize: vertical;
+}
+
+
+/* =========================
+   PAYMENT
+   ========================= */
+
+.payment-option {
+    padding: 12px;
+
+    border: 2px solid #e5e6ff;
+
+    border-radius: 12px;
+
+    margin-bottom: 10px;
+
+    cursor: pointer;
+}
+
+.payment-box {
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    background: #f1f4ff;
+
+    border-radius: 15px;
+
+    border: 1px solid #dfe3ff;
+}
+
+.qr-placeholder {
+    text-align: center;
+
+    padding: 25px;
+
+    margin: 15px 0;
+
+    background: white;
+
+    border-radius: 15px;
+
+    color: #665ed0;
+
+    border: 2px dashed #a9b1f5;
+}
+
+
+/* =========================
+   SUCCESS
+   ========================= */
+
+.success {
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 60px;
+
+    margin-bottom: 10px;
+}
+
+.success h2 {
+    color: #5d55d6;
+
+    margin-bottom: 10px;
+}
+
+#orderNumber {
+    display: block;
+
+    font-size: 24px;
+
+    color: #4f8cff;
+
+    margin: 10px 0 20px;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .food-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+    }
+
+    .food-card img {
+        aspect-ratio: 1 / 1;
+    }
+}
+
+
+/* =========================
+   DESKTOP
+   ========================= */
+
+@media (min-width: 1025px) {
+
+    .food-grid {
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 22px;
+    }
+
+    .menu-section {
+        max-width: 1200px;
+
+        margin: auto;
+    }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+.header {
+    min-height: 60px;
+    padding: 8px 12px;
+}
+
+.logo {
+    font-size: 18px;
+}
+
+.header > div:last-child {
+    gap: 5px;
+}
+
+.history-button {
+    height: 38px;
+    padding: 0 11px;
+    font-size: 12px;
+}
+
+.cart-button {
+    height: 38px;
+    padding: 0 12px;
+    font-size: 15px;
+}
+
+    .header {
+        padding: 8px 15px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .hero {
+        padding: 35px 15px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .search-section {
+        padding: 15px;
+    }
+
+    .category-section {
+        padding: 0 15px 15px;
+    }
+
+    .menu-section {
+        padding: 20px 15px;
+    }
+
+    .menu-section h2 {
+        font-size: 21px;
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .food-card img {
+        aspect-ratio: 1 / 1;
+    }
+
+    .food-info {
+        padding: 10px;
+    }
+
+    .food-name {
+        font-size: 14px;
+    }
+
+    .food-price {
+        font-size: 16px;
+    }
+
+    .add-button {
+        padding: 9px 5px;
+
+        font-size: 13px;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-content {
+        margin: 15px auto;
+
+        padding: 18px;
+
+        border-radius: 16px;
+    }
+
+    .cart-item {
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+   ========================= */
+
+@media (max-width: 380px) {
+
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .food-card img {
+        aspect-ratio: 1 / 1;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+}
+.qr-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto;
+}
+
+.qr-placeholder img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+.order-summary {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.order-info {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.order-info h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.order-info p {
+    margin: 8px 0;
+    word-break: break-word;
+}
+
+.order-summary-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 10px;
+    font-size: 18px;
+}
+/* =========================
+   ORDER HISTORY
+========================= */
+
+#historyList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.history-card {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.history-order-number {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.history-status {
+    background: #e8f8ed;
+    color: #16803c;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.history-date {
+    color: #777;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.history-info {
+    margin-top: 14px;
+}
+
+.history-info p {
+    margin: 7px 0;
+    font-size: 14px;
+}
+
+.history-items {
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 14px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 14px;
+}
+
+.history-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed #ddd;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.history-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #888;
+}
+
+.history-empty-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .history-button {
+    height: 40px;
+    padding: 0 12px;
+    font-size: 13px;
+}
+
+    .history-card {
+        padding: 15px;
+        border-radius: 16px;
+    }
+
+    .history-header {
+        align-items: flex-start;
+    }
+
+    .history-order-number {
+        font-size: 16px;
+    }
+
+    .history-status {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    .history-item {
+        font-size: 13px;
+    }
+
+    .history-total {
+        font-size: 17px;
+    }
+
+}
+/* =========================
+   BEAUTIFUL HERO
+========================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    padding: 65px 20px 70px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,255,255,0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(255,255,255,0.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #4f8cff 0%,
+            #7354e8 50%,
+            #9b63e8 100%
+        );
+}
+
+/* วงกลมตกแต่ง */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+
+    top: -70px;
+    left: -50px;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+
+    right: -80px;
+    bottom: -100px;
+}
+
+
+/* เนื้อหา */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 650px;
+
+    margin: auto;
+}
+
+
+/* ป้ายชื่อร้าน */
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    margin-bottom: 18px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.18);
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    backdrop-filter: blur(8px);
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* หัวข้อ */
+
+.hero h1 {
+    font-size: 42px;
+
+    line-height: 1.25;
+
+    margin-bottom: 16px;
+
+    font-weight: 800;
+
+    text-shadow:
+        0 3px 12px rgba(0,0,0,0.12);
+}
+
+
+/* บรรทัดที่สอง */
+
+.hero h1 span {
+    color: #fff5b8;
+}
+
+
+/* คำอธิบาย */
+
+.hero p {
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+    color: rgba(255,255,255,0.95);
+}
+
+
+/* ปุ่มสั่งอาหาร */
+
+.hero-button {
+    border: none;
+
+    padding: 13px 28px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #5d55d6;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.18);
+
+    transition: 0.2s ease;
+}
+
+.hero-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.22);
+}
+
+.hero-button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================
+   MOBILE HERO
+========================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 45px 18px 50px;
+    }
+
+    .hero-badge {
+        font-size: 13px;
+
+        padding: 7px 14px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+
+        line-height: 1.3;
+    }
+
+    .hero p {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    .hero-button {
+        padding: 12px 24px;
+
+        font-size: 15px;
+    }
+}
+/* =========================
+   MENU SECTION - NEW LOOK
+========================= */
+
+.menu-section {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 35px 20px 50px;
+}
+
+
+/* หัวข้อเมนู */
+
+.menu-section h2 {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 22px;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    color: #302b63;
+}
+
+
+/* ขีดเล็ก ๆ หน้าหัวข้อ */
+
+.menu-section h2::before {
+    content: "";
+
+    width: 6px;
+    height: 28px;
+
+    margin-right: 10px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        180deg,
+        #4f8cff,
+        #7656e8
+    );
+}
+
+
+/* =========================
+   FOOD GRID
+========================= */
+
+.food-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================
+   FOOD CARD
+========================= */
+
+.food-card {
+    position: relative;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border: 1px solid #eeeefe;
+
+    box-shadow:
+        0 5px 20px rgba(72, 67, 150, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.food-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 28px rgba(72, 67, 150, 0.16);
+}
+
+
+/* =========================
+   FOOD IMAGE
+========================= */
+
+.food-card img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.35s ease;
+}
+
+.food-card:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================
+   FOOD INFO
+========================= */
+
+.food-info {
+    padding: 15px;
+}
+
+.food-name {
+    font-size: 16px;
+
+    font-weight: 700;
+
+    line-height: 1.45;
+
+    min-height: 47px;
+
+    margin-bottom: 8px;
+
+    color: #302b63;
+}
+
+
+.food-price {
+    font-size: 19px;
+
+    font-weight: 800;
+
+    color: #6858dc;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+.add-button {
+    width: 100%;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f8cff,
+            #7656e8
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px rgba(92, 83, 210, 0.18);
+
+    transition: 0.2s ease;
+}
+
+.add-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 15px rgba(92, 83, 210, 0.25);
+}
+
+.add-button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .food-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 18px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .menu-section {
+        padding: 25px 15px 40px;
+    }
+
+    .menu-section h2 {
+        font-size: 22px;
+
+        margin-bottom: 18px;
+    }
+
+    .menu-section h2::before {
+        width: 5px;
+        height: 24px;
+
+        margin-right: 8px;
+    }
+
+    .food-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .food-card {
+        border-radius: 16px;
+    }
+
+    .food-info {
+        padding: 10px;
+    }
+
+    .food-name {
+        font-size: 14px;
+
+        min-height: 41px;
+    }
+
+    .food-price {
+        font-size: 17px;
+
+        margin-bottom: 9px;
+    }
+
+    .add-button {
+        padding: 9px 5px;
+
+        border-radius: 11px;
+
+        font-size: 13px;
+    }
+}
+/* =========================
+   CATEGORY - APP STYLE
+========================= */
+
+.category-section {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 5px 20px 22px;
+
+    background: white;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+}
+
+.category-section::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ปุ่มหมวดหมู่ */
+
+.category {
+    flex-shrink: 0;
+
+    border: 1px solid #e4e5ff;
+
+    padding: 11px 20px;
+
+    border-radius: 30px;
+
+    background: #f7f8ff;
+
+    color: #5b58a8;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Hover */
+
+.category:hover {
+    transform: translateY(-2px);
+
+    border-color: #7665e8;
+
+    color: #6256d8;
+
+    box-shadow:
+        0 4px 10px rgba(92, 83, 210, 0.12);
+}
+
+
+/* ปุ่มที่เลือกอยู่ */
+
+.category.active {
+    border-color: transparent;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f8cff,
+            #7656e8
+        );
+
+    color: white;
+
+    box-shadow:
+        0 5px 14px rgba(92, 83, 210, 0.25);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .category-section {
+        gap: 8px;
+
+        padding: 3px 15px 18px;
+    }
+
+    .category {
+        padding: 9px 16px;
+
+        font-size: 13px;
+
+        border-radius: 25px;
+    }
+}
+/* =========================
+   SEARCH BOX
+========================= */
+
+.search-section {
+    padding: 20px;
+    background: white;
+}
+
+.search-box {
+    position: relative;
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+
+    left: 16px;
+
+    font-size: 18px;
+
+    pointer-events: none;
+}
+
+.search-box input {
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 48px;
+
+    border: 2px solid #e5e6ff;
+
+    border-radius: 30px;
+
+    background: #f8f9ff;
+
+    color: #302b63;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.search-box input:focus {
+    border-color: #7665e8;
+
+    background: white;
+
+    box-shadow:
+        0 4px 15px rgba(92, 83, 210, 0.1);
+}
+
+.search-box input::placeholder {
+    color: #999;
+}
+
+.search-clear {
+    position: absolute;
+
+    right: 10px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #e9ebff;
+
+    color: #6860c9;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.search-clear:hover {
+    background: #dfe2ff;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   MOBILE SEARCH
+========================= */
+
+@media (max-width: 600px) {
+
+    .search-section {
+        padding: 15px;
+    }
+
+    .search-box input {
+        height: 46px;
+
+        font-size: 14px;
+
+        padding-left: 45px;
+    }
+
+    .search-icon {
+        left: 15px;
+    }
+
+}
+/* =========================
+   FOOD DETAIL
+========================= */
+
+.food-detail {
+    max-width: 520px;
+}
+
+.detail-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 18px;
+
+    margin-bottom: 18px;
+}
+
+.detail-info h2 {
+    color: #302b63;
+
+    font-size: 23px;
+
+    margin-bottom: 8px;
+}
+
+.detail-price {
+    color: #6858dc;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+.detail-info p {
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+.detail-quantity {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+.detail-quantity button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #e9edff;
+
+    color: #5c55d6;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.detail-quantity button:hover {
+    background: #dfe3ff;
+
+    transform: scale(1.05);
+}
+
+#detailQuantity {
+    min-width: 30px;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #302b63;
+}
+
+
+@media (max-width: 600px) {
+
+    .food-detail {
+        padding: 15px;
+    }
+
+    .detail-image {
+        border-radius: 15px;
+    }
+
+    .detail-info h2 {
+        font-size: 20px;
+    }
+
+    .detail-price {
+        font-size: 20px;
+    }
+
+}
